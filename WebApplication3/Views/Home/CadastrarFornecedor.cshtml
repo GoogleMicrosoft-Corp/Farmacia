@@ -1,0 +1,32 @@
+﻿@model Fornecedor
+@{
+    ViewBag.Title = "CadastrarFornecedor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@(Model!= null ? "Editar Fornecedor" : "Cadastrar Fornecedor")</h2>
+@using (Html.BeginForm((Model != null ? "AtualizarFornecedor" : "CadastrarFornecedor"), "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.FornecedorId)
+
+    <div class="row">
+        <label>Nome do Forneecedor</label>
+        <div class="form-group">
+            <div class="form-line">
+                @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Digite aqui a razão social do Fornecedor", required = "required" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label>CNPJ do Fornecedor</label>
+        <div class="form-group">
+            <div class="form-line">
+                @Html.TextBoxFor(m => m.CNPJ, new { @class = "form-control", placeholder = "Digite aqui o CNPJ do Fornecedor", required = "required" })
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="@Url.Action("CadastroFornecedor")" class="btn btn-outline-danger">CANCELAR</a>
+        <button type="submit" class="btn btn-outline-success">CONFIRMAR</button>
+    </div>
+}

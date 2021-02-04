@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FARMACIAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="EstoqueId" />
+          </Key>
+          <Property Name="EstoqueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdutoId" Type="int" />
+          <Property Name="Qtd" Type="int" />
+          <Property Name="PrecoCompra" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MargemLucro" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AceitaDesconto" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="FornecedorId" />
+          </Key>
+          <Property Name="FornecedorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="300" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="Movimentacao">
+          <Key>
+            <PropertyRef Name="MovimentacaoId" />
+          </Key>
+          <Property Name="MovimentacaoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operacao" Type="int" />
+          <Property Name="OperadorID" Type="int" />
+          <Property Name="Data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Operador">
+          <Key>
+            <PropertyRef Name="OperadorId" />
+          </Key>
+          <Property Name="OperadorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Produtos">
+          <Key>
+            <PropertyRef Name="ProdutoId" />
+          </Key>
+          <Property Name="ProdutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeProduto" Type="varchar" MaxLength="200" />
+          <Property Name="TipoProduto" Type="int" />
+          <Property Name="FornecedorId" Type="int" />
+          <Property Name="Descricao" Type="varchar" MaxLength="1000" />
+          <Property Name="Foto" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Vendas">
+          <Key>
+            <PropertyRef Name="VendaId" />
+          </Key>
+          <Property Name="VendaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdutoId" Type="int" />
+          <Property Name="ValorVenda" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperadorId" Type="int" />
+          <Property Name="Data" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="FARMACIAModelStoreContainer">
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fornecedor" EntityType="Self.Fornecedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movimentacao" EntityType="Self.Movimentacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operador" EntityType="Self.Operador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendas" EntityType="Self.Vendas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FARMACIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="EstoqueId" />
+          </Key>
+          <Property Name="EstoqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdutoId" Type="Int32" />
+          <Property Name="Qtd" Type="Int32" />
+          <Property Name="PrecoCompra" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MargemLucro" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AceitaDesconto" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="FornecedorId" />
+          </Key>
+          <Property Name="FornecedorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Movimentacao">
+          <Key>
+            <PropertyRef Name="MovimentacaoId" />
+          </Key>
+          <Property Name="MovimentacaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operacao" Type="Int32" />
+          <Property Name="OperadorID" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Operador">
+          <Key>
+            <PropertyRef Name="OperadorId" />
+          </Key>
+          <Property Name="OperadorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Produtos">
+          <Key>
+            <PropertyRef Name="ProdutoId" />
+          </Key>
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeProduto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TipoProduto" Type="Int32" />
+          <Property Name="FornecedorId" Type="Int32" />
+          <Property Name="Descricao" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vendas">
+          <Key>
+            <PropertyRef Name="VendaId" />
+          </Key>
+          <Property Name="VendaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdutoId" Type="Int32" />
+          <Property Name="ValorVenda" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperadorId" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="FARMACIAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" />
+          <EntitySet Name="Fornecedor" EntityType="Self.Fornecedor" />
+          <EntitySet Name="Movimentacao" EntityType="Self.Movimentacao" />
+          <EntitySet Name="Operador" EntityType="Self.Operador" />
+          <EntitySet Name="Produtos" EntityType="Self.Produtos" />
+          <EntitySet Name="Vendas" EntityType="Self.Vendas" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FARMACIAModelStoreContainer" CdmEntityContainer="FARMACIAEntities">
+          <EntitySetMapping Name="Estoque">
+            <EntityTypeMapping TypeName="FARMACIAModel.Estoque">
+              <MappingFragment StoreEntitySet="Estoque">
+                <ScalarProperty Name="EstoqueId" ColumnName="EstoqueId" />
+                <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+                <ScalarProperty Name="Qtd" ColumnName="Qtd" />
+                <ScalarProperty Name="PrecoCompra" ColumnName="PrecoCompra" />
+                <ScalarProperty Name="MargemLucro" ColumnName="MargemLucro" />
+                <ScalarProperty Name="AceitaDesconto" ColumnName="AceitaDesconto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fornecedor">
+            <EntityTypeMapping TypeName="FARMACIAModel.Fornecedor">
+              <MappingFragment StoreEntitySet="Fornecedor">
+                <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimentacao">
+            <EntityTypeMapping TypeName="FARMACIAModel.Movimentacao">
+              <MappingFragment StoreEntitySet="Movimentacao">
+                <ScalarProperty Name="MovimentacaoId" ColumnName="MovimentacaoId" />
+                <ScalarProperty Name="Operacao" ColumnName="Operacao" />
+                <ScalarProperty Name="OperadorID" ColumnName="OperadorID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operador">
+            <EntityTypeMapping TypeName="FARMACIAModel.Operador">
+              <MappingFragment StoreEntitySet="Operador">
+                <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produtos">
+            <EntityTypeMapping TypeName="FARMACIAModel.Produtos">
+              <MappingFragment StoreEntitySet="Produtos">
+                <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+                <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+                <ScalarProperty Name="TipoProduto" ColumnName="TipoProduto" />
+                <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendas">
+            <EntityTypeMapping TypeName="FARMACIAModel.Vendas">
+              <MappingFragment StoreEntitySet="Vendas">
+                <ScalarProperty Name="VendaId" ColumnName="VendaId" />
+                <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+                <ScalarProperty Name="ValorVenda" ColumnName="ValorVenda" />
+                <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

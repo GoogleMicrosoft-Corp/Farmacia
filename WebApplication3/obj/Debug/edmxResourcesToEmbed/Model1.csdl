@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FARMACIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estoque">
+    <Key>
+      <PropertyRef Name="EstoqueId" />
+    </Key>
+    <Property Name="EstoqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdutoId" Type="Int32" />
+    <Property Name="Qtd" Type="Int32" />
+    <Property Name="PrecoCompra" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MargemLucro" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AceitaDesconto" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Fornecedor">
+    <Key>
+      <PropertyRef Name="FornecedorId" />
+    </Key>
+    <Property Name="FornecedorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Movimentacao">
+    <Key>
+      <PropertyRef Name="MovimentacaoId" />
+    </Key>
+    <Property Name="MovimentacaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operacao" Type="Int32" />
+    <Property Name="OperadorID" Type="Int32" />
+    <Property Name="Data" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Operador">
+    <Key>
+      <PropertyRef Name="OperadorId" />
+    </Key>
+    <Property Name="OperadorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Produtos">
+    <Key>
+      <PropertyRef Name="ProdutoId" />
+    </Key>
+    <Property Name="ProdutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomeProduto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TipoProduto" Type="Int32" />
+    <Property Name="FornecedorId" Type="Int32" />
+    <Property Name="Descricao" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Vendas">
+    <Key>
+      <PropertyRef Name="VendaId" />
+    </Key>
+    <Property Name="VendaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdutoId" Type="Int32" />
+    <Property Name="ValorVenda" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperadorId" Type="Int32" />
+    <Property Name="Data" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="FARMACIAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estoque" EntityType="Self.Estoque" />
+    <EntitySet Name="Fornecedor" EntityType="Self.Fornecedor" />
+    <EntitySet Name="Movimentacao" EntityType="Self.Movimentacao" />
+    <EntitySet Name="Operador" EntityType="Self.Operador" />
+    <EntitySet Name="Produtos" EntityType="Self.Produtos" />
+    <EntitySet Name="Vendas" EntityType="Self.Vendas" />
+  </EntityContainer>
+</Schema>

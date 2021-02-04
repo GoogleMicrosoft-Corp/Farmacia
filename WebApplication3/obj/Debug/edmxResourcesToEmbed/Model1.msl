@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FARMACIAModelStoreContainer" CdmEntityContainer="FARMACIAEntities">
+    <EntitySetMapping Name="Estoque">
+      <EntityTypeMapping TypeName="FARMACIAModel.Estoque">
+        <MappingFragment StoreEntitySet="Estoque">
+          <ScalarProperty Name="EstoqueId" ColumnName="EstoqueId" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="Qtd" ColumnName="Qtd" />
+          <ScalarProperty Name="PrecoCompra" ColumnName="PrecoCompra" />
+          <ScalarProperty Name="MargemLucro" ColumnName="MargemLucro" />
+          <ScalarProperty Name="AceitaDesconto" ColumnName="AceitaDesconto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fornecedor">
+      <EntityTypeMapping TypeName="FARMACIAModel.Fornecedor">
+        <MappingFragment StoreEntitySet="Fornecedor">
+          <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movimentacao">
+      <EntityTypeMapping TypeName="FARMACIAModel.Movimentacao">
+        <MappingFragment StoreEntitySet="Movimentacao">
+          <ScalarProperty Name="MovimentacaoId" ColumnName="MovimentacaoId" />
+          <ScalarProperty Name="Operacao" ColumnName="Operacao" />
+          <ScalarProperty Name="OperadorID" ColumnName="OperadorID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operador">
+      <EntityTypeMapping TypeName="FARMACIAModel.Operador">
+        <MappingFragment StoreEntitySet="Operador">
+          <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produtos">
+      <EntityTypeMapping TypeName="FARMACIAModel.Produtos">
+        <MappingFragment StoreEntitySet="Produtos">
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+          <ScalarProperty Name="TipoProduto" ColumnName="TipoProduto" />
+          <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendas">
+      <EntityTypeMapping TypeName="FARMACIAModel.Vendas">
+        <MappingFragment StoreEntitySet="Vendas">
+          <ScalarProperty Name="VendaId" ColumnName="VendaId" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="ValorVenda" ColumnName="ValorVenda" />
+          <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
