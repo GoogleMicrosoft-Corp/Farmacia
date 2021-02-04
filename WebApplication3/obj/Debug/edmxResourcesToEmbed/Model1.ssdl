@@ -34,6 +34,8 @@
     </Key>
     <Property Name="OperadorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Senha" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Produtos">
     <Key>

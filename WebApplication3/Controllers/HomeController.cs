@@ -11,17 +11,48 @@ namespace WebApplication3.Controllers
     public class HomeController : Controller
     {
         private readonly FARMACIAEntities db;
-
+        Utilitarios Utis = new Utilitarios();
         public HomeController()
         {
             db = new FARMACIAEntities();
-            ViewBag.Alerta = string.Empty;
+
         }
-        #region  Menu
+
+        #region Login
         public ActionResult Index()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string email, string senha)
+        {
+            string hash = Utis.sha256(senha);
+            try
+            {
+                var operador = db.Operador.Where(x => x.Email == email && x.Senha == hash).FirstOrDefault();
+                if (operador.Senha != string.Empty)
+                {
+                    Session.Add("OperadorId", operador.OperadorId);
+                    Session.Add("Nome", operador.Nome);
+                    return RedirectToAction("Menu");
+                }
+                    
+                else
+                    return RedirectToAction("Index");
+
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+
+        }
+        #endregion
+
+        #region  Menu
+
         public ActionResult Menu()
         {
             return View();
@@ -43,6 +74,7 @@ namespace WebApplication3.Controllers
         #endregion
 
         #region Módulos
+
         #region Fornecedores
         public ActionResult CadastroFornecedor(int? pagina)
         {
@@ -91,6 +123,7 @@ namespace WebApplication3.Controllers
             return RedirectToAction("CadastroFornecedor");
         }
         #endregion
+
         #endregion
     }
 }

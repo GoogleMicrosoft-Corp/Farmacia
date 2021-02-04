@@ -35,6 +35,8 @@
     <EntitySetMapping Name="Operador">
       <EntityTypeMapping TypeName="FARMACIAModel.Operador">
         <MappingFragment StoreEntitySet="Operador">
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="OperadorId" ColumnName="OperadorId" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
         </MappingFragment>
