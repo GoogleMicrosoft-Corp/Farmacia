@@ -43,6 +43,7 @@ namespace WebApplication3.Controllers
         #endregion
 
         #region Módulos
+        #region Fornecedores
         public ActionResult CadastroFornecedor(int? pagina)
         {
             var pageSize = 10;
@@ -60,9 +61,9 @@ namespace WebApplication3.Controllers
 
         [HttpPost]
         public ActionResult CadastrarFornecedor(Fornecedor data)
-        {         
+        {
             db.Fornecedor.Add(data);
-            db.SaveChanges();           
+            db.SaveChanges();
             return RedirectToAction("CadastroFornecedor");
             ViewBag.Alerta = "Fornecedor Cadastrado com Sucesso!";
         }
@@ -70,17 +71,26 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public ActionResult AtualizarFornecedor(Fornecedor data)
         {
-            // data.DataCadastro = DateTime.Now;
-            //data.FornecedorId = FornecedorId;
-            //data.Nome = Nome;
-            //data.CNPJ = CNPJ;
-
             db.Fornecedor.Attach(data);
             db.Entry(data).State = EntityState.Modified;
             db.SaveChanges();
             ViewBag.Alerta = "Fornecedor Editado com Sucesso!";
             return RedirectToAction("CadastroFornecedor");
         }
+
+
+        public ActionResult ConfirmaRemoverFornecedor(int id)
+        {
+            var registro = db.Fornecedor.Find(id);
+            if (registro != null)
+            {
+                db.Fornecedor.Remove(registro);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("CadastroFornecedor");
+        }
+        #endregion
         #endregion
     }
 }
