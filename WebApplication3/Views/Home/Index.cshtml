@@ -3,39 +3,38 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 <div>
-    <div style="margin-top:10%;">
-        <div class="card" style="width:30%; border-radius:25px; margin:auto auto; float: none;">
+    <div style="margin-top:12%;">
+        <div class="card col-lg-4 col-md-6 col-sm-8 col-xs-9" style=" border-radius:25px; margin:auto auto; float: none;">
             <div class="card-body">
                 <form action="@Url.Action("Index")" method="POST">
                     <div class="form-group">
                         <center>
-                            <img class="img-fluid" src="~/Imagens/Logo.png" style="width:80%;height:50%;" alt="Imagem responsiva">
+                            <img class="img-fluid" src="~/Imagens/Logo.png" style="width:55%;height:25%;" alt="Imagem responsiva">
                         </center>
-                        <div class="row" style="padding-left:8%;padding-right:8%;">
+                        <br />
+                        <br />
+                        <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                                <label for="login" style="align-items:flex-start">Login</label>
-                                <input type="text" id="email" name="email" placeholder="Digite o Login Cadastrado" style="width:100%;" class="form-control" />
+                                <label for="login" style="align-items:flex-start">Usuário</label>
+                                <input type="text" id="email" name="email" placeholder="Informe aqui o Usuário Cadastrado" style="border-radius: 15px;" class="form-control" />
                             </div>
                         </div>
-                        <br />
-                        <div class="row" style="padding-left:8%;padding-right:8%;">
+                        <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                                 <label for="senha">Senha</label>
-                                <input type="password" id="senha" name="senha" placeholder="Digite aqui sua Senha" class="form-control" />
+                                <input type="password" id="senha" name="senha" placeholder="Informe aqui sua Senha" style="border-radius: 15px;" class="form-control" />
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <center>
                                 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 ">
-                                    <button class="btn btn-primary" style="width: 100%;" type="submit">Entrar</button>
+                                    <button class="btn btn-primary" style="width: 100%;border-radius: 15px;" type="submit">Entrar</button>
                                 </div>
-                                <p>Clique <a href="@Url.Action("EsqueciMinhaSenha","Home")">Aqui</a> para recuperar sua senha.</p>
+                                <br />
+                                <br />
                             </center>
                         </div>
-                        <br />
-                        <br />
-                        <br />
                     </div>
                 </form>
             </div>
